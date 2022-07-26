@@ -19,7 +19,7 @@ class CustomTextInput extends React.Component {
     }
 }
 
-class AutoFocusTextInput extends React.Component {
+export class AutoFocusTextInput extends React.Component {
     constructor(props) {
         super(props);
         this.textInput = React.createRef();
@@ -36,7 +36,7 @@ class AutoFocusTextInput extends React.Component {
     }
 }
 
-export default function CustomTextInputFunction(props) {
+function CustomTextInputFunction(props) {
     const textInput = useRef(null);
 
     function handleClick() {
@@ -53,3 +53,36 @@ export default function CustomTextInputFunction(props) {
     </div>
 }
 
+class CustomTextInputCreateRefInFunction extends React.Component {
+    constructor(props) {
+        super(props);
+        let textInput = null;
+        this.setTextInputRef = element => textInput = element;
+        this.focusTextInput = () => textInput && textInput.focus();
+    }
+
+    componentDidMount() {
+        this.focusTextInput();
+    }
+
+    render() {
+        // Utilise la fonction de rappel `ref` pour stocker une référence à l’élément
+        // DOM du champ texte dans une propriété d’instance (ex. this.textInput)
+        return (
+            <div>
+                <input
+                    type="text"
+                    ref={this.setTextInputRef}
+                />
+                <input
+                    type="button"
+                    value="Donner le focus au champ texte ref function"
+                    onClick={this.focusTextInput}
+                />
+            </div>
+        );
+    }
+}
+
+
+export default CustomTextInputCreateRefInFunction;
