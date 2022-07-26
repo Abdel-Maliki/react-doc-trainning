@@ -1,10 +1,13 @@
 import React from 'react';
 
-const FancyButton = React.forwardRef((props, ref) => (
+// https://fr.reactjs.org/docs/forwarding-refs.html
+
+const FancyButton = logProps(React.forwardRef((props, ref) => (
     <button ref={ref} className="FancyButton" onClick={() => alert('click')}>
-        {props.children}
+        {props.label}
     </button>
-));
+)));
+
 
 class ForWardingRef extends React.Component {
     constructor(props) {
@@ -13,12 +16,35 @@ class ForWardingRef extends React.Component {
     }
 
     componentDidMount() {
-        this.ref.current.click();
+        if (this.ref && this.ref.current) {
+            this.ref.current.click();
+        }
+
     }
 
     render() {
-        return <FancyButton ref={this.ref}/>;
+        return <FancyButton ref={this.ref} {...this.props}/>;
     }
+}
+
+
+function logProps(WrappedComponent) {
+    class LogProps extends React.Component {
+        componentDidUpdate(prevProps, prevState, snapshot) {
+            console.log('Anciennes props :', prevProps);
+            console.log('Nouvelles props :', this.props);
+        }
+
+        render() {
+            const {forwardedRef, ...rest} = this.props;
+            return <WrappedComponent ref={forwardedRef} {...rest} />;
+        }
+    }
+
+
+    return React.forwardRef((props, ref) => (
+        <LogProps forwardedRef={ref} {...props}/>
+    ))
 }
 
 export default ForWardingRef;
