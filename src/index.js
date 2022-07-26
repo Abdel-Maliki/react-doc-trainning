@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Game from "./game/game";
+import AutoFocusTextInput from "./refs/refs-and-the-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game/>);
+root.render(<AutoFocusTextInput/>);
 
