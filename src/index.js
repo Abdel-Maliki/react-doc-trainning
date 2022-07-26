@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import StateAndLifeCycle from "./state-and-lifecycle/state-and-lifecycle";
+import HandlingEvents from "./handling-events/handling-events";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<StateAndLifeCycle label={'Cliquez'}/>);
+root.render(<HandlingEvents label={'Cliquez'}/>);
 
