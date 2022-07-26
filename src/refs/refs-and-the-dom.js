@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 class CustomTextInput extends React.Component {
     constructor(props) {
@@ -19,8 +19,7 @@ class CustomTextInput extends React.Component {
     }
 }
 
-
-export default class AutoFocusTextInput extends React.Component {
+class AutoFocusTextInput extends React.Component {
     constructor(props) {
         super(props);
         this.textInput = React.createRef();
@@ -32,7 +31,25 @@ export default class AutoFocusTextInput extends React.Component {
 
     render() {
         return (
-            <CustomTextInput ref={this.textInput} />
+            <CustomTextInput ref={this.textInput}/>
         );
     }
 }
+
+export default function CustomTextInputFunction(props) {
+    const textInput = useRef(null);
+
+    function handleClick() {
+        textInput.current.focus();
+    }
+
+    return <div>
+        <input ref={textInput} type='text'/>
+        <input
+            type="button"
+            value="Donner le focus au champ texte"
+            onClick={handleClick}
+        />
+    </div>
+}
+
