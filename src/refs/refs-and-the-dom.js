@@ -84,5 +84,37 @@ class CustomTextInputCreateRefInFunction extends React.Component {
     }
 }
 
+function CustomTextInputCreateRefInFunctionChild(props) {
+    return <input ref={props.inputRef}/>
+}
 
-export default CustomTextInputCreateRefInFunction;
+
+class CustomTextInputCreateRefInFunctionParent extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.inputElement = null;
+        this.focusTextInput = this.focusTextInput.bind(this);
+    }
+
+    focusTextInput() {
+        if (this.inputElement) this.inputElement.focus()
+    }
+
+    componentDidMount() {
+        this.focusTextInput();
+    }
+
+    render() {
+        return <div>
+            <CustomTextInputCreateRefInFunctionChild inputRef={el => this.inputElement = el} type='text'/>
+            <input
+                type="button"
+                value="Donner le focus au champ texte"
+                onClick={this.focusTextInput}
+            />
+        </div>
+    }
+}
+
+export default CustomTextInputCreateRefInFunctionParent;
