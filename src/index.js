@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ConditionalRendering from "./conditional-rendering/conditional-rendering";
+import Forms from "./forms/forms";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ConditionalRendering/>);
+root.render(<Forms/>);
 
