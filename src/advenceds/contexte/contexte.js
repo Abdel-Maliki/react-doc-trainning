@@ -24,21 +24,7 @@ class ThemedButton extends React.Component {
         return <ButtonUseContext/>;
     }
 
-
-
-    componentDidMount() {
-    }
-
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-    }
-
-    componentWillUnmount() {
+    UNSAFE_componentWillMount() {
     }
 }
 
