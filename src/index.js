@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CompositionVasInheritance from "./fondamentaux/composition-vs-inheritance/composition-vs-inheritance";
+import App from "./advenceds/contexte/contexte";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<CompositionVasInheritance/>);
+root.render(<App/>);
 
