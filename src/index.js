@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LiftingStateUp from "./lifting-state-up/lifting-state-up";
+import CompositionVasInheritance from "./fondamentaux/composition-vs-inheritance/composition-vs-inheritance";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<LiftingStateUp/>);
+root.render(<CompositionVasInheritance/>);
 
