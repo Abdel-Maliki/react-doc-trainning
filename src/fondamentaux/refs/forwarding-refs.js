@@ -37,7 +37,7 @@ function logProps(WrappedComponent) {
 
         render() {
             const {forwardedRef, ...rest} = this.props;
-            return logProps(<WrappedComponent ref={forwardedRef} {...rest} />);
+            return <WrappedComponent ref={forwardedRef} {...rest} />;
         }
     }
 
