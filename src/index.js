@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./hooks/hooks-effect/hooks-effect";
+import ErrorBoundaries from "./advenceds/error-boundaries/error-boundaries";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+root.render(<ErrorBoundaries/>);
 
