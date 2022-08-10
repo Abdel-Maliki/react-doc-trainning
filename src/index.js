@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./advenceds/higher-order-components/higher-order-components";
+import ListOfTenThings from "./advenceds/jsx-in-depth/jsx-in-depth";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+root.render(<ListOfTenThings/>);
 
